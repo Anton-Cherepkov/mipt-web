@@ -14,6 +14,8 @@ $(function()
 	
 	root.append('Список заданий:<br>');
 	var list = root.append('<ul></ul>').find('ul').last();
+	addTask(list, 'Сделать задание #3 по web-программированию');
+	
 	
 	$('#add_task').click(function()
 	{
