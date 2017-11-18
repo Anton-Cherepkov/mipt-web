@@ -1,8 +1,12 @@
 function addTask(list, taskText)
 {
-	var newTask = list.append('<li></li>').find('li').last();
-	newTask.append('<span>' + taskText + '</span><br>');
-	newTask.append('<input type="button" id="remove_task" value="Удалить">');
+	var newEl = $('<li>');
+	newEl.append('<span>' + taskText + '</span> ');
+	newEl.append($('<button>').text('Удалить').click(function()
+	{
+		$(this).parent().remove();
+	}));
+	list.append(newEl);
 }
 
 $(function()
@@ -16,23 +20,16 @@ $(function()
 	var list = root.append('<ul></ul>').find('ul').last();
 	addTask(list, 'Сделать задание #3 по web-программированию');
 	
-	
 	$('#add_task').click(function()
 	{
 		taskText = $('#add_task_input').val();
-		addTask(list, taskText);
-		/*if (/\S/.test(taskText))
+		if (/\S/.test(taskText))
 		{
 			addTask(list, taskText);
 		}
 		else
 		{
 			alert('Задание не может быть пустым!');
-		}*/
-	});
-	
-	root.on('click', '#remove_task', function()
-	{
-		$(this).parent().remove();
+		}
 	});
 });
