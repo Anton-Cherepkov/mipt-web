@@ -20,14 +20,15 @@ $(function()
 	$('#add_task').click(function()
 	{
 		taskText = $('#add_task_input').val();
-		if (/\S/.test(taskText))
+		addTask(list, taskText);
+		/*if (/\S/.test(taskText))
 		{
 			addTask(list, taskText);
 		}
 		else
 		{
 			alert('Задание не может быть пустым!');
-		}
+		}*/
 	});
 	
 	root.on('click', '#remove_task', function()
