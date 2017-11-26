@@ -15,11 +15,10 @@ func RemoveEven(arr []int) (result []int) {
 }
 
 func PowerGenerator(base int) func() int {
-	lastNumber := base
-	return func() (result int) {
-		result = lastNumber
+	lastNumber := 1
+	return func() int {
 		lastNumber *= base
-		return
+		return lastNumber
 	}
 }
 
