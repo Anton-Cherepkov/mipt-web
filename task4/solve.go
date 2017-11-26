@@ -18,7 +18,7 @@ func PowerGenerator(base int) func() int {
 	lastNumber := base
 	return func() (result int) {
 		result = lastNumber
-		lastNumber *= 2
+		lastNumber *= base
 		return
 	}
 }
@@ -35,7 +35,7 @@ func DifferentWordsCount(str string) (result int) {
 			}
 			word = ""
 		} else {
-			word += string([]byte{str[i]})
+			word += string(str[i])
 		}
 	}
 	if len(word) > 0 {
